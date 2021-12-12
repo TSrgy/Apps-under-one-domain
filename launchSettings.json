@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "mainserverapp": "StartDebugging",
+        "secondserverapp": "StartDebugging"
+      }
+    },
+    "Debug second app": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "secondserverapp",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/second/swagger",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "mainserverapp": "StartWithoutDebugging",
+        "secondserverapp": "StartDebugging"
+      }
+    }
+  }
+}

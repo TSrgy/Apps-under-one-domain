@@ -5,8 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>ffad5500-bc40-4880-8fdb-de59e185f3d4</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>mainserverapp</DockerServiceName>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/second/swagger</DockerServiceUrl>
+    <DockerServiceName>secondserverapp</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

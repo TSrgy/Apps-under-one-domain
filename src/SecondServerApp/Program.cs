@@ -18,8 +18,9 @@ app.Map("/second", mappedApp =>
         mappedApp.UseSwaggerUI();
     }
 
+    mappedApp.UseRouting();
     mappedApp.UseAuthorization();
-
+    
     mappedApp.UseEndpoints(endpoints =>
     {
         endpoints.MapControllers();
