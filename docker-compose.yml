@@ -6,10 +6,34 @@ services:
     build:
       context: .
       dockerfile: src/MainServerApp/Dockerfile
+    networks:
+      apps-under-one-domain-network:
+        aliases:
+          - mainserverapp-alias
 
   secondserverapp:
     image: ${DOCKER_REGISTRY-}secondserverapp
     build:
       context: .
       dockerfile: src/SecondServerApp/Dockerfile
+    networks:
+      apps-under-one-domain-network:
+        aliases:
+          - secondserverapp-alias
+   
+  nginx-proxy:
+    depends_on:
+      - mainserverapp
+      - secondserverapp
+    image: nginx:alpine
+    volumes: 
+      - ./nginx-default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      apps-under-one-domain-network:
+        aliases:
+          - proxy-alias
+    ports:
+      - 5999:80
 
+networks:
+    apps-under-one-domain-network:

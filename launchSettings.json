@@ -5,18 +5,20 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "mainserverapp": "StartDebugging",
-        "secondserverapp": "StartDebugging"
+        "secondserverapp": "StartDebugging",
+        "nginx-proxy": "StartWithoutDebugging"
       }
     },
     "Debug second app": {
       "commandName": "DockerCompose",
       "composeLaunchAction": "LaunchBrowser",
       "composeLaunchServiceName": "secondserverapp",
-      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/second/swagger",
+      "composeLaunchUrl": "{Scheme}://localhost:5999/second/swagger",
       "commandVersion": "1.0",
       "serviceActions": {
         "mainserverapp": "StartWithoutDebugging",
-        "secondserverapp": "StartDebugging"
+        "secondserverapp": "StartDebugging",
+        "nginx-proxy": "StartWithoutDebugging"
       }
     }
   }
